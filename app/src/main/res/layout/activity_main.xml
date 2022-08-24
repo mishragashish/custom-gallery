@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        android:background="@color/black">
+
+        <include
+            android:id="@+id/layoutToolbar"
+            layout="@layout/layout_toolbar" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcyImages"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutToolbar"
+            app:spanCount="3"
+            tools:listitem="@layout/item_grid_recycler"
+            app:layout_constraintBottom_toTopOf="@id/horizontalLine"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/white"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/rcyImageSelected"
+            android:id="@+id/horizontalLine"
+            android:visibility="gone"
+            />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcyImageSelected"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="horizontal"
+            tools:listitem="@layout/item_selected_image_rcy"
+            android:visibility="gone"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
